@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Anime X Zone</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0b0f;
+      color: white;
+    }
+
+    header {
+      background: #15151d;
+      padding: 18px;
+      text-align: center;
+      border-bottom: 2px solid #e50914;
+    }
+
+    header h1 {
+      color: #ff1744;
+      font-size: 28px;
+    }
+
+    header p {
+      color: #aaa;
+      margin-top: 5px;
+    }
+
+    .search {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .search input {
+      width: 90%;
+      max-width: 500px;
+      padding: 13px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .container {
+      padding: 15px;
+    }
+
+    .section-title {
+      margin: 25px 0 15px;
+      border-left: 4px solid #ff1744;
+      padding-left: 10px;
+    }
+
+    .anime-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .anime-card {
+      background: #17171f;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .anime-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .anime-card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .anime-card h3 {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .anime-card p {
+      padding: 0 10px 12px;
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 25px;
+      text-align: center;
+      background: #15151d;
+      color: #888;
+    }
+
+    @media (min-width: 700px) {
+      .anime-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🔥 ANIME X ZONE</h1>
+    <p>Sub • English Dub • Hindi Dub</p>
+  </header>
+
+  <div class="search">
+    <input type="text" placeholder="🔎 Search Anime...">
+  </div>
+
+  <div class="container">
+
+    <h2 class="section-title">🔥 Latest Anime</h2>
+
+    <div class="anime-grid">
+
+      <div class="anime-card">
+        <img src="https://via.placeholder.com/300x420" alt="Anime">
+        <h3>Anime Name 1</h3>
+        <p>Japanese Sub • English Dub</p>
+      </div>
+
+      <div class="anime-card">
+        <img src="https://via.placeholder.com/300x420" alt="Anime">
+        <h3>Anime Name 2</h3>
+        <p>Japanese Sub • Hindi Dub</p>
+      </div>
+
+      <div class="anime-card">
+        <img src="https://via.placeholder.com/300x420" alt="Anime">
+        <h3>Anime Name 3</h3>
+        <p>English Dub • Sub</p>
+      </div>
+
+      <div class="anime-card">
+        <img src="https://via.placeholder.com/300x420" alt="Anime">
+        <h3>Anime Name 4</h3>
+        <p>Hindi Dub • Sub</p>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">🇮🇳 Hindi Dub</h2>
+
+    <div class="anime-grid">
+      <div class="anime-card">
+        <img src="https://via.placeholder.com/300x420" alt="Anime">
+        <h3>Hindi Dub Anime</h3>
+        <p>Hindi Audio</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">🇬🇧 English Dub</h2>
+
+    <div class="anime-grid">
+      <div class="anime-card">
+        <img src="https://via.placeholder.com/300x420" alt="Anime">
+        <h3>English Dub Anime</h3>
+        <p>English Audio</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Anime X Zone
+  </footer>
+
+</body>
+</html>
