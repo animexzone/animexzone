@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime X Zone</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #08090d;
+      color: white;
+    }
+
+    header {
+      padding: 18px 20px;
+      background: #101117;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff4d67;
+    }
+
+    .search {
+      background: #1b1d25;
+      border: none;
+      outline: none;
+      padding: 10px 14px;
+      border-radius: 20px;
+      color: white;
+      width: 120px;
+    }
+
+    .hero {
+      padding: 45px 20px;
+      background: linear-gradient(135deg, #171a2b, #090a0e);
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 22px;
+      background: #ff3655;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 25px 20px;
+    }
+
+    section h2 {
+      margin-bottom: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .card {
+      background: #15171e;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .poster {
+      height: 190px;
+      background: linear-gradient(145deg, #292d42, #111219);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 45px;
+    }
+
+    .info {
+      padding: 12px;
+    }
+
+    .info h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .info p {
+      color: #888;
+      font-size: 13px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Anime X Zone 🎬</div>
+    <input class="search" type="text" placeholder="Search...">
+  </header>
+
+  <div class="hero">
+    <h1>Welcome to Anime X Zone</h1>
+    <p>
+      Discover anime, movies, episodes and legally available content
+      in one beautiful place.
+    </p>
+    <a href="#anime" class="btn">Explore Anime</a>
+  </div>
+
+  <section id="anime">
+    <h2>🔥 Popular Anime</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="poster">⚔️</div>
+        <div class="info">
+          <h3>Anime One</h3>
+          <p>Action • Adventure</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="poster">🔥</div>
+        <div class="info">
+          <h3>Anime Two</h3>
+          <p>Action • Fantasy</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="poster">🌙</div>
+        <div class="info">
+          <h3>Anime Three</h3>
+          <p>Drama • Fantasy</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="poster">⚡</div>
+        <div class="info">
+          <h3>Anime Four</h3>
+          <p>Action • Sci-Fi</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Anime X Zone • Legal streaming project
+  </footer>
+
+</body>
+</html>
