@@ -1,55 +1,638 @@
-  padding:30px 15px;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anime X Zone</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background:#080808;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+header{
+    background:#111;
+    padding:18px;
+    position:sticky;
+    top:0;
+    z-index:10;
+    border-bottom:1px solid #333;
+}
+
+.nav{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    color:#ff1744;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.search{
+    display:flex;
+    width:400px;
+    max-width:100%;
+}
+
+.search input{
+    flex:1;
+    padding:12px;
+    border:0;
+    outline:none;
+    background:#222;
+    color:white;
+    border-radius:6px 0 0 6px;
+}
+
+.search button{
+    border:0;
+    padding:0 18px;
+    background:#ff1744;
+    color:white;
+    border-radius:0 6px 6px 0;
+}
+
+.hero{
+    max-width:1100px;
+    margin:25px auto;
+    padding:45px 25px;
+    border-radius:15px;
+    background:linear-gradient(135deg,#21111a,#101010);
+}
+
+.hero h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#aaa;
+    line-height:1.6;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:0 15px 50px;
+}
+
+.section{
+    margin-top:35px;
+}
+
+.title{
+    font-size:23px;
+    margin-bottom:18px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:15px;
+}
+
+.card{
+    background:#151515;
+    border-radius:10px;
+    overflow:hidden;
+    cursor:pointer;
+    border:1px solid #242424;
+}
+
+.card:hover{
+    border-color:#ff1744;
+    transform:translateY(-3px);
+}
+
+.card img{
+    width:100%;
+    aspect-ratio:2/3;
+    object-fit:cover;
+    display:block;
+}
+
+.info{
+    padding:10px;
+}
+
+.name{
+    font-size:14px;
+    font-weight:bold;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.score{
+    color:#ffd740;
+    margin-top:6px;
+    font-size:13px;
+}
+
+.message{
+    grid-column:1/-1;
+    text-align:center;
+    padding:30px;
+    color:#aaa;
+}
+
+footer{
+    text-align:center;
+    color:#777;
+    padding:30px;
+    border-top:1px solid #222;
+}
+
+/* MODAL */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    z-index:100;
+    overflow:auto;
+    padding:25px;
 }
 
 .modal-box{
-  max-width:800px;
-  margin:auto;
-  background:#15151d;
-  border-radius:14px;
-  overflow:hidden;
-  border:1px solid #333;
+    max-width:800px;
+    margin:30px auto;
+    background:#151515;
+    border-radius:15px;
+    padding:25px;
+    position:relative;
 }
 
 .close{
-  float:right;
-  font-size:30px;
-  padding:10px 18px;
-  color:#fff;
-  background:transparent;
+    position:absolute;
+    right:15px;
+    top:15px;
+    background:#ff1744;
+    color:white;
+    border:0;
+    border-radius:50%;
+    width:35px;
+    height:35px;
+    font-size:20px;
 }
 
-.details{
-  padding:20px;
+.detail{
+    display:flex;
+    gap:25px;
 }
 
-.details img{
-  width:150px;
-  height:220px;
-  object-fit:cover;
-  border-radius:8px;
-  float:left;
-  margin:0 20px 15px 0;
+.detail img{
+    width:220px;
+    max-height:330px;
+    object-fit:cover;
+    border-radius:10px;
 }
 
-.details h2{
-  color:#ff1744;
-  margin-bottom:10px;
+.detail-text{
+    flex:1;
 }
 
-.details p{
-  color:#bbb;
-  line-height:1.6;
-  font-size:14px;
+.detail-text h2{
+    margin-bottom:15px;
 }
 
-.clear{
-  clear:both;
+.detail-text p{
+    color:#bbb;
+    line-height:1.6;
+    margin-bottom:10px;
 }
 
-.episodes{
-  margin-top:25px;
+@media(max-width:900px){
+    .grid{
+        grid-template-columns:repeat(4,1fr);
+    }
 }
 
-.episode{
-  display:inline-block;
-  padding:9px 13px;
+@media(max-width:600px){
+
+    .nav{
+        flex-direction:column;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .hero{
+        margin:15px;
+    }
+
+    .hero h1{
+        font-size:28px;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .detail{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .detail-text{
+        width:100%;
+    }
+
+    .detail-text h2{
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+
+<div class="logo">🔥 ANIME X ZONE</div>
+
+<div class="search">
+<input id="search" placeholder="Search anime...">
+<button onclick="searchAnime()">🔍</button>
+</div>
+
+</div>
+</header>
+
+
+<section class="hero">
+
+<h1>Welcome to Anime X Zone</h1>
+
+<p>
+Discover anime, movies and popular series.
+Search your favorite anime and explore information.
+</p>
+
+</section>
+
+
+<main class="container">
+
+
+<section class="section">
+
+<h2 class="title">🔥 Popular Anime</h2>
+
+<div id="popular" class="grid">
+
+<div class="message">
+Loading anime...
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2 class="title">⭐ Top Rated</h2>
+
+<div id="top" class="grid">
+
+<div class="message">
+Loading anime...
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2 class="title">🎬 Anime Movies</h2>
+
+<div id="movies" class="grid">
+
+<div class="message">
+Loading movies...
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+Anime X Zone © 2026
+
+</footer>
+
+
+<div id="modal" class="modal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal()">×</button>
+
+<div id="details">
+Loading...
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+const API = "https://api.jikan.moe/v4";
+
+
+function card(anime){
+
+    let image =
+    anime.images &&
+    anime.images.jpg &&
+    anime.images.jpg.image_url;
+
+    let title = anime.title || "Unknown Anime";
+
+    let score = anime.score || "N/A";
+
+    return `
+
+    <div class="card" onclick="details(${anime.mal_id})">
+
+        <img src="${image}" alt="anime">
+
+        <div class="info">
+
+            <div class="name">
+                ${title}
+            </div>
+
+            <div class="score">
+                ⭐ ${score}
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+}
+
+
+async function load(url,element){
+
+    try{
+
+        let response = await fetch(url);
+
+        if(!response.ok){
+            throw new Error("API error");
+        }
+
+        let json = await response.json();
+
+        let data = json.data || [];
+
+        if(data.length === 0){
+            throw new Error("No data");
+        }
+
+        document.getElementById(element).innerHTML =
+        data.map(card).join("");
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        document.getElementById(element).innerHTML = `
+
+        <div class="message">
+            Anime load korte problem hocche.<br>
+            Please refresh the page.
+        </div>
+
+        `;
+
+    }
+
+}
+
+
+/* POPULAR */
+
+load(
+    API + "/top/anime?limit=12",
+    "popular"
+);
+
+
+/* TOP */
+
+load(
+    API + "/top/anime?limit=12&filter=favorite",
+    "top"
+);
+
+
+/* MOVIES */
+
+load(
+    API + "/anime?type=movie&limit=12",
+    "movies"
+);
+
+
+/* SEARCH */
+
+async function searchAnime(){
+
+    let q =
+    document.getElementById("search").value.trim();
+
+    if(!q){
+        return;
+    }
+
+    document.getElementById("popular").innerHTML = `
+
+    <div class="message">
+        Searching...
+    </div>
+
+    `;
+
+    try{
+
+        let response = await fetch(
+            API + "/anime?q=" +
+            encodeURIComponent(q) +
+            "&limit=12"
+        );
+
+        let json = await response.json();
+
+        let data = json.data || [];
+
+        if(data.length === 0){
+
+            document.getElementById("popular").innerHTML = `
+
+            <div class="message">
+                No anime found.
+            </div>
+
+            `;
+
+            return;
+        }
+
+        document.getElementById("popular").innerHTML =
+        data.map(card).join("");
+
+        window.scrollTo({
+            top:250,
+            behavior:"smooth"
+        });
+
+    }
+
+    catch(error){
+
+        document.getElementById("popular").innerHTML = `
+
+        <div class="message">
+            Search failed.
+        </div>
+
+        `;
+
+    }
+
+}
+
+
+/* DETAILS */
+
+async function details(id){
+
+    let modal =
+    document.getElementById("modal");
+
+    let box =
+    document.getElementById("details");
+
+    modal.style.display = "block";
+
+    box.innerHTML = "Loading...";
+
+    try{
+
+        let response =
+        await fetch(API + "/anime/" + id + "/full");
+
+        let json =
+        await response.json();
+
+        let a = json.data;
+
+        let image =
+        a.images.jpg.large_image_url;
+
+        box.innerHTML = `
+
+        <div class="detail">
+
+            <img src="${image}">
+
+            <div class="detail-text">
+
+                <h2>
+                    ${a.title}
+                </h2>
+
+                <p>
+                    ⭐ Score: ${a.score || "N/A"}
+                </p>
+
+                <p>
+                    🎬 Type: ${a.type || "N/A"}
+                </p>
+
+                <p>
+                    📺 Episodes: ${a.episodes || "N/A"}
+                </p>
+
+                <p>
+                    📅 Status: ${a.status || "N/A"}
+                </p>
+
+                <p>
+                    ${a.synopsis || "No description available."}
+                </p>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }
+
+    catch(error){
+
+        box.innerHTML =
+        "Unable to load details.";
+
+    }
+
+}
+
+
+function closeModal(){
+
+    document.getElementById("modal").style.display =
+    "none";
+
+}
+
+
+document.getElementById("modal").onclick =
+function(e){
+
+    if(e.target === this){
+        closeModal();
+    }
+
+};
+
+</script>
+
+</body>
+</html>
